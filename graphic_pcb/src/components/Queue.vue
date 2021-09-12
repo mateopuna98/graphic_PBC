@@ -1,6 +1,6 @@
 <template>
     <div class="queue">
-        <h1 > Queue {{type}}</h1>
+        <h1 class="h1-queue"> Cola {{type}}</h1>
     </div>
 </template>
 
@@ -16,10 +16,10 @@ export default {
 </script>
 
 <style scoped>
-    h1 {
+    /* h1 {
         color: red
-    }
-    .queue {
+    } */
+    /* .queue {
         background: lightcoral;
-    }
+    } */
 </style>
