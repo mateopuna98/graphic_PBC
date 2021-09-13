@@ -10,10 +10,10 @@
     <div class="mainGrid">
       <div class="c1">
         <div class="c11">
-          <PCB type="Fibonacci" />
+          <PCB class="pcb-fibo" type="Fibonacci" />
           <Button />
         </div>
-        <PCB type="FIFO" />
+        <PCB class="pcb-fifo" type="FIFO" />
       </div>
 
       <div class="c2">
@@ -98,7 +98,9 @@ h1 {
   font-weight: 100;
   color: #808080;
 }
-
+.h1-sub {
+  color: #7f696c;
+}
 .mainGrid {
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
@@ -114,6 +116,14 @@ h1 {
   display: grid;
   grid-template-rows: 3fr 1fr ;
 }
+.pcb-fibo:hover {
+    border: 2px solid #9c9ea4;
+}
+
+.pcb-fifo:hover {
+    border: 2px solid #9c9ea4;
+
+}
 .c2 {
   display: grid;
   grid-template-rows: 65% 35%;
@@ -123,9 +133,6 @@ h1 {
   grid-template-rows: 65% 35%;
 }
 
-.c1 div:hover {
-  border: 2px solid #9c9ea4;
-}
 .c2 div:hover {
   border: 2px solid #9c9ea4;
 }

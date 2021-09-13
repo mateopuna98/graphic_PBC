@@ -1,6 +1,6 @@
 <template>
     <div class="pcb">
-        <h1 class="h1-pcb"> PCB {{type}}</h1>
+        <h1 class="h1-sub"> PCB {{type}}</h1>
         <div class="monster"></div>
     </div>
 </template>
@@ -18,12 +18,7 @@ export default {
 
 
 <style scoped>
-/* h1 {
-    color: blue
-} */
-/* .pcb {
-    background: lig;
-} */
+
 .monster {
   width: 190px;
   height: 240px;

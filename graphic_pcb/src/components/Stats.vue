@@ -1,16 +1,25 @@
 <template>
   <div class="stats">
-    <h1 class="h1-stats">Estadísticas {{ type }}</h1>
-    <ul>
-      <li>Procesos terminados:        {{procesosTerminados}}</li>
+    <h1 class="h1-sub">Estadísticas {{ type }}</h1>
+    <ul v-if="type === 'Fibonacci'">
+      <li>Procesos terminados: {{statsFibo.procesosTerminados}}</li>
     </ul>
-    <h4>Promedio en los últimos 10 procesos:</h4>
-    <ul>
-      <li>Prioridad promedio:         {{prioridadPromedio}}</li>
-      <li>Tamaño de cola promedio:    {{tamanoPromedio}}</li>
-      <li>Tiempo de espera promedio:  {{esperaPromedio}}</li>
-      <li>Valor ponderado de pérdida: {{ponderado}}</li>
 
+      <ul v-else>
+      <li>Procesos terminados: {{statsFifo.procesosTerminados}}</li>
+    </ul>
+    <h5>Promedio en los últimos 10 procesos:</h5>
+    <ul v-if="type === 'Fibonacci'">
+      <li>Prioridad promedio: {{statsFibo.prioridadPromedio}}</li>
+      <li>Tamaño de cola promedio: {{statsFibo.tamanoColaPromedio}}</li>
+      <li>Tiempo de espera promedio: {{statsFibo.tiempoEsperaPromedio}}</li>
+      <li>Valor ponderado de pérdida: {{statsFibo.valorPonderadoPerdida}}</li>
+    </ul>
+      <ul v-else>
+      <li>Prioridad promedio: {{statsFifo.prioridadPromedio}}</li>
+      <li>Tamaño de cola promedio: {{statsFifo.tamanoColaPromedio}}</li>
+      <li>Tiempo de espera promedio: {{statsFifo.tiempoEsperaPromedio}}</li>
+      <li>Valor ponderado de pérdida: {{statsFifo.valorPonderadoPerdida}}</li>
     </ul>
   </div>
 </template>
@@ -22,19 +31,21 @@ export default {
   props: {
     type: String,
   },
-  data() {
-      return {
-          procesosTerminados: 0,
-          prioridadPromedio: 0,
-          tamanoPromedio: 0,
-          esperaPromedio: 0,
-          ponderado: 0
-      } 
+  computed: {
+    statsFibo() {
+      console.log("Vaya vaya")
+      console.log(this.$store.state.estadisticas.fibonacciHeap)
+      return this.$store.state.estadisticas.fibonacciHeap
+    },
+    statsFifo() {
+      return this.$store.state.estadisticas.fifo
+    } 
   }
 };
 </script>
 
 <style scoped>
+
     h4 {
     text-align: left;
     padding-left: 20px;

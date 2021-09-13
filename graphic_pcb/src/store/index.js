@@ -13,14 +13,14 @@ export default createStore({
         prioridadPromedio: 0,
         tamanoColaPromedio: 0,
         tiempoEsperaPromedio: 0,
-        valorPonderaroPerdida: 0
+        valorPonderadoPerdida: 0
       },
       fifo: {
         procesosTerminados: 0,
         prioridadPromedio: 0,
         tamanoColaPromedio: 0,
         tiempoEsperaPromedio: 0,
-        valorPonderaroPerdida: 0
+        valorPonderadoPerdida: 0
       }
     }
 

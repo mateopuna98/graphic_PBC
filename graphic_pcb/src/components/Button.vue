@@ -17,8 +17,9 @@ export default {
     onClick() {
       const n = this.cantidadProcesos;
       console.log(n);
-      this.cantidadProcesos = parseInt(Math.random() * 10);
       console.log(this.$store.dispatch('agregarProcesos', { 'cantidad': this.cantidadProcesos }))
+      this.cantidadProcesos = parseInt(Math.random() * 10);
+
     },
   },
 };
@@ -35,6 +36,8 @@ button {
   /* color: orange */
 }
 .button {
-  padding: 100x;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
