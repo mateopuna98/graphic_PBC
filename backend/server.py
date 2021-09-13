@@ -215,14 +215,16 @@ def returnData():
                 "valorPonderadoPerdida" : ponderadoHeap,
                 "prioridadPromedio" : promedio(prioridadesHeap),
                 "tamanoColaPromedio" : promedio(tamanoColaHeap),
-                "tiempoEsperaPromedio" : promedio(tiempoPromedioHeap)
+                "tiempoEsperaPromedio" : promedio(tiempoPromedioHeap),
+                "tamanoCola" : (tamanoColaHeap[len(tamanoColaHeap) - 1] if len(tamanoColaHeap) > 0 else 0)
             },
             "fifo" : {
                 "procesosTerminados" : totalFifo,
                 "valorPonderadoPerdida" : ponderadoFifo,
                 "prioridadPromedio" : promedio(prioridadesFifo),
                 "tamanoColaPromedio" : promedio(tamanoColaFifo),
-                "tiempoEsperaPromedio" : promedio(tiempoPromedioFifo)
+                "tiempoEsperaPromedio" : promedio(tiempoPromedioFifo),
+                "tamanoCola" : (tamanoColaFifo[len(tamanoColaFifo) - 1] if len(tamanoColaFifo) > 0 else 0)
             }
         }
     })
