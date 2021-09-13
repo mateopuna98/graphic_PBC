@@ -119,7 +119,7 @@ def deleteFibonacci():
     if pbcHeap is not None:
         pbcHeap = pbcHeap.process
     else:
-        pbcHeap = {}
+        pbcHeap = None
 
 
 ##############################stats2############################################
@@ -163,7 +163,7 @@ def deleteFIFO():
     if len(fifo) > 0:
         pbcFIFO = fifo.pop(0)
     else:
-        pbcFIFO = {}
+        pbcFIFO = None
 
 ##################################stats2########################################
 
@@ -209,7 +209,7 @@ def returnData():
         "fibonacciHeap"    : stringifyHeap(fibonacciHeap),
         "pbcFifo"   :   pbcFIFO,
         "fifo" : fifo,
-        "stats" : {
+        "estadisticas" : {
             "fibonacciHeap" : {
                 "finishedProcess" : totalHeap,
                 "valorPonderadoPerdida" : ponderadoHeap,
