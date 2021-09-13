@@ -1,29 +1,38 @@
 <template>
-  <div>
+
+  <div class="main">
+    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+
+    <div id="header">
+      <h1>Proyecto Final Algorítmica II</h1>
+    </div>
+
     <div class="mainGrid">
       <div class="c1">
         <div class="c11">
           <PCB type="Fibonacci" />
           <Button />
         </div>
-
         <PCB type="FIFO" />
-
       </div>
+
       <div class="c2">
         <Queue type="Fibonacci" />
         <Queue type="FIFO" />
-
-
       </div>
+
       <div class="c3">
         <Stats type="Fibonacci" />
         <Stats type="FIFO" />
-
       </div>
 
     </div>
-  </div>
+
+    <div>
+
+      <Texto />
+    </div>
+    </div>
 </template>
 
 <script>
@@ -31,6 +40,7 @@ import Button from "./components/Button";
 import PCB from "./components/PCB";
 import Queue from "./components/Queue";
 import Stats from "./components/Stats";
+import Texto from "./components/Texto";
 
 export default {
   name: "App",
@@ -39,43 +49,84 @@ export default {
     PCB,
     Queue,
     Stats,
+    Texto
   },
 };
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Roboto Slab", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
 }
 
+#header {
+  position: fixed;
+  display: block;
+  height: 45px;
+  width: 100%;
+  background-color: #52a6bf;
+  margin-right: -8px;
+
+}
+#header h1{
+  color: white;
+  text-align: left;
+  font-size: 20px;
+  padding-left: 10px;
+}
+html body {
+  height: 100%;
+  margin: 0;
+}
+.main {
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;  
+  background: white;
+}
+h1 {
+  font-weight: 100;
+  color: #808080;
+}
+
 .mainGrid {
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
-  height: 800px;
+  height: 1000px;
+  padding: 50px;
   gap: 1em
 }
 .c1 {
   display: grid;
-  grid-template-rows: 1fr 1fr ;
-  background: #2c3e50;
+  grid-template-rows: 65% 35%;
 }
 .c11 {
   display: grid;
   grid-template-rows: 3fr 1fr ;
-  background: #2c3e50;
 }
 .c2 {
   display: grid;
-  grid-template-rows: 1fr 1fr ;
-  background: #2c3e50;
+  grid-template-rows: 65% 35%;
 }
 .c3 {
   display: grid;
-  grid-template-rows: 1fr 1fr ;
-  background: #2c3e50;
+  grid-template-rows: 65% 35%;
 }
+
+.c1 div:hover {
+  border: 2px solid #9c9ea4;
+}
+.c2 div:hover {
+  border: 2px solid #9c9ea4;
+}
+.c3 div:hover {
+  border: 2px solid #9c9ea4;
+}
+
 </style>
