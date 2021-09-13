@@ -211,14 +211,14 @@ def returnData():
         "fifo" : fifo,
         "estadisticas" : {
             "fibonacciHeap" : {
-                "finishedProcess" : totalHeap,
+                "procesosTerminados" : totalHeap,
                 "valorPonderadoPerdida" : ponderadoHeap,
                 "prioridadPromedio" : promedio(prioridadesHeap),
                 "tamanoColaPromedio" : promedio(tamanoColaHeap),
                 "tiempoEsperaPromedio" : promedio(tiempoPromedioHeap)
             },
             "fifo" : {
-                "finishedProcess" : totalFifo,
+                "procesosTerminados" : totalFifo,
                 "valorPonderadoPerdida" : ponderadoFifo,
                 "prioridadPromedio" : promedio(prioridadesFifo),
                 "tamanoColaPromedio" : promedio(tamanoColaFifo),
