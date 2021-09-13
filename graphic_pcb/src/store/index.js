@@ -37,7 +37,18 @@ export default createStore({
       state.fifo = data['fifo']
       state.pbcFifo = data['pbcFifo']
       state.pbcHeap = data['pbcHeap']
-      state.estadisticas = data['estadisticas']
+      
+      state.estadisticas.fibonacciHeap.procesosTerminados = data['estadisticas']['fibonacciHeap']['procesosTerminados']
+      state.estadisticas.fibonacciHeap.prioridadPromedio = data['estadisticas']['fibonacciHeap']['prioridadPromedio']
+      state.estadisticas.fibonacciHeap.tamanoColaPromedio = data['estadisticas']['fibonacciHeap']['tamanoColaPromedio']
+      state.estadisticas.fibonacciHeap.tiempoEsperaPromedio = data['estadisticas']['fibonacciHeap']['tiempoEsperaPromedio']
+      state.estadisticas.fibonacciHeap.valorPonderaroPerdida = data['estadisticas']['fibonacciHeap']['valorPonderadoPerdida']
+      
+      state.estadisticas.fifo.procesosTerminados = data['estadisticas']['fifo']['procesosTerminados']
+      state.estadisticas.fifo.prioridadPromedio = data['estadisticas']['fifo']['prioridadPromedio']
+      state.estadisticas.fifo.tamanoColaPromedio = data['estadisticas']['fifo']['tamanoColaPromedio']
+      state.estadisticas.fifo.tiempoEsperaPromedio = data['estadisticas']['fifo']['tiempoEsperaPromedio']
+      state.estadisticas.fifo.valorPonderaroPerdida = data['estadisticas']['fifo']['valorPonderadoPerdida']
 
     }
 
