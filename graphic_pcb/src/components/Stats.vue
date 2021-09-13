@@ -33,8 +33,6 @@ export default {
   },
   computed: {
     statsFibo() {
-      console.log("Vaya vaya")
-      console.log(this.$store.state.estadisticas.fibonacciHeap)
       return this.$store.state.estadisticas.fibonacciHeap
     },
     statsFifo() {
