@@ -45,6 +45,7 @@ export default createStore({
   actions: {
 
     async getData(context) {
+      // Usa este metodo para recibir informacion del backend
 
       await fetch('api/procesos/informacion', {method: 'GET'})
       .then(async (result) =>{
@@ -58,10 +59,31 @@ export default createStore({
     },
 
     async agregarProcesos(context, { cantidad }) {
-
-      console.log(cantidad)
+      // Usa este metodo para agregar procesos y actualizar automaticamente vuex
 
       await fetch(`api/procesos/${cantidad}`, {method: 'POST'})
+      .then((result) => {
+        console.log(result)
+        context.dispatch('getData')
+      })
+      .catch((e) => {console.log(e)})
+
+    },
+
+    async fibonacciDelete(context) {
+
+      await fetch('api/procesos/fibonacci/delete', { method: 'POST' })
+      .then((result) => {
+        console.log(result)
+        context.dispatch('getData')
+      })
+      .catch((e) => {console.log(e)})
+
+    },
+
+    async fifoDelete(context) {
+
+      await fetch('api/procesos/fifo/delete', { method: 'POST' })
       .then((result) => {
         console.log(result)
         context.dispatch('getData')
@@ -72,6 +94,40 @@ export default createStore({
 
   },
   modules: {
+  },
+
+  getters: {
+    
+    getFibonacciHeap(state) {
+    
+      return state.fibonacciHeap
+    
+    },
+
+    getFifo(state) {
+
+      return state.fifo
+
+    },
+
+    getPBCFibonacciHeap(state) {
+      
+      return state.pbcHeap
+
+    },
+
+    getPBCFifo(state) {
+
+      return state.pbcFifo
+
+    },
+
+    getEstadisticas(state) {
+
+      return state.estadisticas
+
+    }
+
   }
 
 })

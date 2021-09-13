@@ -51,6 +51,10 @@ export default {
     Stats,
     Texto
   },
+
+  created() {
+    this.$store.dispatch('getData')
+  }
 };
 </script>
 

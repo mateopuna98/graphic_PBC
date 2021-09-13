@@ -18,6 +18,7 @@ export default {
       const n = this.cantidadProcesos;
       console.log(n);
       this.cantidadProcesos = parseInt(Math.random() * 10);
+      console.log(this.$store.dispatch('agregarProcesos', { 'cantidad': this.cantidadProcesos }))
     },
   },
 };
