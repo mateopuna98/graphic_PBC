@@ -53,8 +53,6 @@ export default createStore({
       state.estadisticas.fifo.tiempoEsperaPromedio = data['estadisticas']['fifo']['tiempoEsperaPromedio']
       state.estadisticas.fifo.valorPonderaroPerdida = data['estadisticas']['fifo']['valorPonderadoPerdida']
       state.estadisticas.fifo.tamanoCola = data['estadisticas']['fifo']['tamanoCola']
-
-
     },
     updateEstadoMonstruo(state, {estado}) {
       state.estadoMonstruo = estado
