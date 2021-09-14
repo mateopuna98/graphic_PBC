@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-
+    estadoMonstruo: "monstruo-tranquilo",
     fibonacciHeap: [],
     fifo: [],
     pbcFifo: null,
@@ -13,14 +13,16 @@ export default createStore({
         prioridadPromedio: 0,
         tamanoColaPromedio: 0,
         tiempoEsperaPromedio: 0,
-        valorPonderadoPerdida: 0
+        valorPonderadoPerdida: 0,
+        tamanoCola: 0
       },
       fifo: {
         procesosTerminados: 0,
         prioridadPromedio: 0,
         tamanoColaPromedio: 0,
         tiempoEsperaPromedio: 0,
-        valorPonderadoPerdida: 0
+        valorPonderadoPerdida: 0,
+        tamanoCola: 0
       }
     }
 
@@ -43,13 +45,19 @@ export default createStore({
       state.estadisticas.fibonacciHeap.tamanoColaPromedio = data['estadisticas']['fibonacciHeap']['tamanoColaPromedio']
       state.estadisticas.fibonacciHeap.tiempoEsperaPromedio = data['estadisticas']['fibonacciHeap']['tiempoEsperaPromedio']
       state.estadisticas.fibonacciHeap.valorPonderaroPerdida = data['estadisticas']['fibonacciHeap']['valorPonderadoPerdida']
+      state.estadisticas.fibonacciHeap.tamanoCola = data['estadisticas']['fibonacciHeap']['tamanoCola']
       
       state.estadisticas.fifo.procesosTerminados = data['estadisticas']['fifo']['procesosTerminados']
       state.estadisticas.fifo.prioridadPromedio = data['estadisticas']['fifo']['prioridadPromedio']
       state.estadisticas.fifo.tamanoColaPromedio = data['estadisticas']['fifo']['tamanoColaPromedio']
       state.estadisticas.fifo.tiempoEsperaPromedio = data['estadisticas']['fifo']['tiempoEsperaPromedio']
       state.estadisticas.fifo.valorPonderaroPerdida = data['estadisticas']['fifo']['valorPonderadoPerdida']
+      state.estadisticas.fifo.tamanoCola = data['estadisticas']['fifo']['tamanoCola']
 
+
+    },
+    updateEstadoMonstruo(state, {estado}) {
+      state.estadoMonstruo = estado
     }
 
   },
@@ -79,6 +87,17 @@ export default createStore({
       })
       .catch((e) => {console.log(e)})
 
+    },
+
+    async excitarMonstruo(context) {
+        context.commit('updateEstadoMonstruo', { 'estado': 'monstruo-excitado' })
+        return new Promise(resolve => setTimeout(resolve, 2000)).then(() => {
+          context.commit('updateEstadoMonstruo', { 'estado': 'monstruo-normal' })
+        })
+    },
+
+    async tranquilizarMonstruo(context) {
+      context.commit('updateEstadoMonstruo', { 'estado': 'monstruo-tranquilo' })
     },
 
     async fibonacciDelete(context) {

@@ -10,16 +10,14 @@ export default {
   name: "Boton",
   data() {
     return {
-      cantidadProcesos: parseInt(Math.random() * 10),
+      cantidadProcesos: parseInt(1 + Math.random() * 5),
     };
   },
   methods: {
     onClick() {
-      const n = this.cantidadProcesos;
-      console.log(n);
       console.log(this.$store.dispatch('agregarProcesos', { 'cantidad': this.cantidadProcesos }))
-      this.cantidadProcesos = parseInt(Math.random() * 10);
-
+      this.$store.dispatch('excitarMonstruo')
+      this.cantidadProcesos = parseInt(1 + Math.random() * 5);
     },
   },
 };

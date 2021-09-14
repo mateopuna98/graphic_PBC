@@ -3,10 +3,14 @@
     <h1 class="h1-sub">Estadísticas {{ type }}</h1>
     <ul v-if="type === 'Fibonacci'">
       <li>Procesos terminados: {{statsFibo.procesosTerminados}}</li>
+      <li>Tamaño actual cola: {{statsFibo.tamanoCola}}</li>
+
     </ul>
 
       <ul v-else>
       <li>Procesos terminados: {{statsFifo.procesosTerminados}}</li>
+      <li>Tamaño actual cola: {{statsFifo.tamanoCola}}</li>
+
     </ul>
     <h5>Promedio en los últimos 10 procesos:</h5>
     <ul v-if="type === 'Fibonacci'">
