@@ -10,6 +10,7 @@
     "core-js": "^3.6.5",
     "greuler": "^1.0.0",
     "vue": "^2.6.11",
+    "vue-cytoscape": "^1.0.8",
     "vuex": "^3.4.0"
   },
   "devDependencies": {

@@ -116,14 +116,14 @@ h1 {
   display: grid;
   grid-template-rows: 3fr 1fr ;
 }
-.pcb-fibo:hover {
+/* .pcb-fibo:hover {
     border: 2px solid #9c9ea4;
 }
 
 .pcb-fifo:hover {
     border: 2px solid #9c9ea4;
 
-}
+} */
 .c2 {
   display: grid;
   grid-template-rows: 60% 40%;
@@ -133,11 +133,11 @@ h1 {
   grid-template-rows: 60% 40%;
 }
 
-.c2 div:hover {
+/* .c2 div:hover {
   border: 2px solid #9c9ea4;
 }
 .c3 div:hover {
   border: 2px solid #9c9ea4;
-}
+} */
 
 </style>
