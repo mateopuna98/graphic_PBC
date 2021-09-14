@@ -10,10 +10,10 @@
     <div class="mainGrid">
       <div class="c1">
         <div class="c11">
-          <PCB class="pcb-fibo" type="Fibonacci" :process=$store.getters.getPBCFibonacciHeap />
+          <PCB class="pcb-fibo" type="Fibonacci" :process=$store.getters.getPBCFibonacciHeap :estadoMonstruo=$store.state.estadoMonstruoFibonacci />
           <Button />
         </div>
-        <PCB class="pcb-fifo" type="FIFO" :process=$store.getters.getPBCFifo />
+        <PCB class="pcb-fifo" type="FIFO" :process=$store.getters.getPBCFifo :estadoMonstruo=$store.state.estadoMonstruoFIFO />
       </div>
 
       <div class="c2">
@@ -104,7 +104,7 @@ h1 {
 .mainGrid {
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
-  height: 1100px;
+  height: 1400px;
   padding: 50px;
   gap: 1em
 }
