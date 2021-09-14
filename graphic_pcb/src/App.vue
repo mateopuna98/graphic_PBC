@@ -10,10 +10,10 @@
     <div class="mainGrid">
       <div class="c1">
         <div class="c11">
-          <PCB class="pcb-fibo" type="Fibonacci" />
+          <PCB class="pcb-fibo" type="Fibonacci" :process=$store.getters.getPBCFibonacciHeap />
           <Button />
         </div>
-        <PCB class="pcb-fifo" type="FIFO" />
+        <PCB class="pcb-fifo" type="FIFO" :process=$store.getters.getPBCFifo />
       </div>
 
       <div class="c2">
@@ -104,13 +104,13 @@ h1 {
 .mainGrid {
   display: grid;
   grid-template-columns: 2fr 4fr 2fr;
-  height: 1000px;
+  height: 1100px;
   padding: 50px;
   gap: 1em
 }
 .c1 {
   display: grid;
-  grid-template-rows: 65% 35%;
+  grid-template-rows: 60% 40%;
 }
 .c11 {
   display: grid;
@@ -126,11 +126,11 @@ h1 {
 }
 .c2 {
   display: grid;
-  grid-template-rows: 65% 35%;
+  grid-template-rows: 60% 40%;
 }
 .c3 {
   display: grid;
-  grid-template-rows: 65% 35%;
+  grid-template-rows: 60% 40%;
 }
 
 .c2 div:hover {
