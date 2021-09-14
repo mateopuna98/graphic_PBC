@@ -1,12 +1,13 @@
 <template>
     <div class="text">
-        <h1 id="analysis-header">Análisis de los algoritmos</h1>
+        <h1 class="titulo-analisis">Análisis de los algoritmos</h1>
+
         <p class="texto">{{introduccionAnalisis}}</p>
-        <h2>Process Control Block</h2>
+        <h2 class="titulo-analisis">Process Control Block</h2>
          <p class="texto">{{pcb}}</p>
-        <h2>Cola Fibonacci</h2>
+        <h2 class="titulo-analisis">Cola Fibonacci</h2>
          <p class="texto">{{colaFibonacci}}</p>
-        <h3>Análisis amortizado cola Fibonacci</h3>
+        <h3 class="titulo-analisis">Análisis amortizado cola Fibonacci</h3>
 
     </div>
 </template>
@@ -27,7 +28,7 @@ export default {
 
 
 <style>
-#analysis-header {
+.titulo-analisis {
     color: #7f696c;
 ;
 }

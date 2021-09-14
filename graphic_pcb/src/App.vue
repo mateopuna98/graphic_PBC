@@ -6,7 +6,7 @@
     <div id="header">
       <h1>Proyecto Final Algorítmica II</h1>
     </div>
-
+    <Introduccion />
     <div class="mainGrid">
       <div class="c1">
         <div class="c11">
@@ -30,7 +30,7 @@
 
     <div>
 
-      <Texto />
+      <Analisis />
     </div>
     </div>
 </template>
@@ -40,7 +40,8 @@ import Button from "./components/Button";
 import PCB from "./components/PCB";
 import Queue from "./components/Queue";
 import Stats from "./components/Stats";
-import Texto from "./components/Texto";
+import Analisis from "./components/Analisis";
+import Introduccion from './components/Introduccion.vue';
 
 export default {
   name: "App",
@@ -49,7 +50,8 @@ export default {
     PCB,
     Queue,
     Stats,
-    Texto
+    Analisis,
+    Introduccion
   },
 
   created() {
