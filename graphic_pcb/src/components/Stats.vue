@@ -12,7 +12,7 @@
       <li>Tamaño actual cola: {{statsFifo.tamanoCola}}</li>
 
     </ul>
-    <h5>Promedio en los últimos 10 procesos:</h5>
+    <h5>Promedio en los últimos 100 procesos:</h5>
     <ul v-if="type === 'Fibonacci'">
       <li>Prioridad promedio: {{statsFibo.prioridadPromedio}}</li>
       <li>Tamaño de cola promedio: {{statsFibo.tamanoColaPromedio}}</li>

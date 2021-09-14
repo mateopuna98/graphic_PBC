@@ -3,7 +3,6 @@
     <button
     id="botonAgregar"
     @click="onClick()"
-    :disabled="kencha"
     >Añadir
     {{ cantidadProcesos }} procesos en ambas colas
     </button>
@@ -22,7 +21,7 @@ export default {
   },
   methods: {
     onClick() {
-      console.log(this.$store.dispatch('agregarProcesos', { 'cantidad': 5 }))
+      console.log(this.$store.dispatch('agregarProcesos', { 'cantidad': this.cantidadProcesos }))
       this.$store.dispatch('excitarMonstruo')
       this.kencha = true
       document.querySelector('#botonAgregar').style.background = "#52a6bf8c" 
@@ -30,7 +29,7 @@ export default {
         this.kencha = false
         document.querySelector('#botonAgregar').style.background = "#52a6bf" 
         this.cantidadProcesos = parseInt(1 + Math.random() * 10);
-      }, 2000);
+      }, 200);
     },
   },
 };

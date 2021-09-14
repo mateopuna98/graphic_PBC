@@ -31,7 +31,7 @@ tamanoColaFifo = []
 tiempoPromedioHeap = []
 tiempoPromedioFifo = []
 
-limite = 10
+limite = 100
 
 ##############################################################################
 
