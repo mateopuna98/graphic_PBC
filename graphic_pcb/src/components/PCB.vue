@@ -88,6 +88,9 @@ export default {
     },
 
     mounted() {
+      if (this.process !== null) {
+        this.$store.commit('updateEstadoMonstruo', { 'estado' : 'monstruo-normal', 'monstruo' : this.type })
+      }
       this.timer_loop()
     },
     computed: {

@@ -62,14 +62,14 @@ export default createStore({
       state.estadisticas.fibonacciHeap.prioridadPromedio = data['estadisticas']['fibonacciHeap']['prioridadPromedio']
       state.estadisticas.fibonacciHeap.tamanoColaPromedio = data['estadisticas']['fibonacciHeap']['tamanoColaPromedio']
       state.estadisticas.fibonacciHeap.tiempoEsperaPromedio = data['estadisticas']['fibonacciHeap']['tiempoEsperaPromedio']
-      state.estadisticas.fibonacciHeap.valorPonderaroPerdida = data['estadisticas']['fibonacciHeap']['valorPonderadoPerdida']
+      state.estadisticas.fibonacciHeap.valorPonderadoPerdida = data['estadisticas']['fibonacciHeap']['valorPonderadoPerdida']
       state.estadisticas.fibonacciHeap.tamanoCola = data['estadisticas']['fibonacciHeap']['tamanoCola']
       
       state.estadisticas.fifo.procesosTerminados = data['estadisticas']['fifo']['procesosTerminados']
       state.estadisticas.fifo.prioridadPromedio = data['estadisticas']['fifo']['prioridadPromedio']
       state.estadisticas.fifo.tamanoColaPromedio = data['estadisticas']['fifo']['tamanoColaPromedio']
       state.estadisticas.fifo.tiempoEsperaPromedio = data['estadisticas']['fifo']['tiempoEsperaPromedio']
-      state.estadisticas.fifo.valorPonderaroPerdida = data['estadisticas']['fifo']['valorPonderadoPerdida']
+      state.estadisticas.fifo.valorPonderadoPerdida = data['estadisticas']['fifo']['valorPonderadoPerdida']
       state.estadisticas.fifo.tamanoCola = data['estadisticas']['fifo']['tamanoCola']
     },
     updateEstadoMonstruos(state, {estado}) {
@@ -101,9 +101,9 @@ export default createStore({
       // Usa este metodo para agregar procesos y actualizar automaticamente vuex
 
       await fetch(`api/procesos/${cantidad}`, {method: 'POST'})
-      .then((result) => {
-        console.log(result)
-        context.dispatch('getData')
+      .then(async (result) => {
+        const res = await result.json()
+        context.commit('updateData', { "data":res })
       })
       .catch((e) => {console.log(e)})
 

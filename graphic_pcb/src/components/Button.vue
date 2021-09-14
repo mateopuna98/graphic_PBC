@@ -1,6 +1,12 @@
 <template>
-  <div class="button">
-    <button @click="onClick()">Añadir {{ cantidadProcesos }} procesos en ambas colas</button>
+  <div class="boton">
+    <button
+    id="botonAgregar"
+    @click="onClick()"
+    :disabled="kencha"
+    >Añadir
+    {{ cantidadProcesos }} procesos en ambas colas
+    </button>
   </div>
 </template>
 
@@ -11,13 +17,20 @@ export default {
   data() {
     return {
       cantidadProcesos: parseInt(1 + Math.random() * 5),
+      kencha: false
     };
   },
   methods: {
     onClick() {
-      console.log(this.$store.dispatch('agregarProcesos', { 'cantidad': this.cantidadProcesos }))
+      console.log(this.$store.dispatch('agregarProcesos', { 'cantidad': 5 }))
       this.$store.dispatch('excitarMonstruo')
-      this.cantidadProcesos = parseInt(1 + Math.random() * 5);
+      this.kencha = true
+      document.querySelector('#botonAgregar').style.background = "#52a6bf8c" 
+      setTimeout(() => {
+        this.kencha = false
+        document.querySelector('#botonAgregar').style.background = "#52a6bf" 
+        this.cantidadProcesos = parseInt(1 + Math.random() * 10);
+      }, 2000);
     },
   },
 };
@@ -28,12 +41,12 @@ button {
   font-family: "Roboto Slab", serif;
   padding: 20px;
   color: white;
-  background-color: #52a6bf;
+  background: #52a6bf;
   border: 0px;
 
   /* color: orange */
 }
-.button {
+.boton {
   display: flex;
   justify-content: center;
   align-items: center;

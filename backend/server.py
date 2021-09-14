@@ -51,13 +51,16 @@ def addRandomProcess(addNumber):
     global tamanoColaHeap
     global tamanoColaFifo
 
+    print("---------------------ADDDDDD--------------------")
+
     for i in range(0,addNumber):
+        print("generando: " + str(i))
         lastPID = lastPID + 1
         new_process = {
 
             "prioridad"     :     randint(1, 5),
             "PID"           :     lastPID,
-            "duracion"      :     randint(1,10),
+            "duracion"      :     randint(2,10),
             "tiempo_creacion" : time.time()
 
         }
@@ -69,11 +72,16 @@ def addRandomProcess(addNumber):
         except any:
             return jsonify({"Message" : any})
 
-    
+
+    print("-d-------d-----------d------------d---------d")
+    fibonacciHeap.printHeap()
+    print("+++++++++++++++++++++++++++++++++++++++++++++")
+
     tamanoHeap = (tamanoColaHeap[ len(tamanoColaHeap) - 1 ] if len(tamanoColaHeap) > 0 else 0) + addNumber
     tamanoFifo = (tamanoColaFifo[ len(tamanoColaFifo) - 1 ] if len(tamanoColaFifo) > 0 else 0) + addNumber
 
     if pbcHeap is None or pbcHeap == {}:
+        print('as')
         pbcHeap = fibonacciHeap.delete().process
         tamanoHeap = tamanoHeap - 1
     
@@ -103,6 +111,8 @@ def deleteFibonacci():
     global tiempoPromedioHeap
     global tamanoColaHeap
 
+    print("---------------------FIBONACIIIIIIIIIIIIIIIIIIII DELETE--------------------")
+
 ###################################stats#######################################
 
     if pbcHeap is not None and pbcHeap != {} :
@@ -110,7 +120,8 @@ def deleteFibonacci():
         prioridadesHeap = agregarConLimite(prioridadesHeap, pbcHeap["prioridad"])
         ponderadoHeap = ponderadoHeap + pbcHeap["prioridad"]/(pbcHeap["duracion"]+lastTimeHeap)
         lastTimeHeap = (pbcHeap["duracion"]+lastTimeHeap)
-        tamanoColaHeap = agregarConLimite(tamanoColaHeap, ( (tamanoColaHeap[ len(tamanoColaHeap) - 1 ] if len(tamanoColaHeap) > 0 else 0) - 1 ))
+        last  = (tamanoColaHeap[ len(tamanoColaHeap) - 1 ] if len(tamanoColaHeap) > 0 else 0)
+        tamanoColaHeap = agregarConLimite(tamanoColaHeap, ( last - 1 if last > 0 else 0 ))
 
 ##############################################################################
 
@@ -148,6 +159,8 @@ def deleteFIFO():
     global tamanoColaFifo
     global tiempoPromedioFifo
 
+    print("---------------------FIFOOOOOOOOOOOOOOOOOOOO DELETE--------------------")
+
 ###################################stats#######################################
 
     if pbcFIFO is not None and pbcFIFO != {} :
@@ -155,7 +168,8 @@ def deleteFIFO():
         prioridadesFifo = agregarConLimite(prioridadesFifo, pbcFIFO["prioridad"])
         ponderadoFifo = ponderadoFifo + pbcFIFO["prioridad"]/(pbcFIFO["duracion"]+lastTimeFifo)
         lastTimeFifo = (pbcFIFO["duracion"]+lastTimeFifo)
-        tamanoColaFifo = agregarConLimite(tamanoColaFifo, ( (tamanoColaFifo[ len(tamanoColaFifo) - 1 ] if len(tamanoColaFifo) > 0 else 0) - 1 ))
+        last = (tamanoColaFifo[ len(tamanoColaFifo) - 1 ] if len(tamanoColaFifo) > 0 else 0)
+        tamanoColaFifo = agregarConLimite(tamanoColaFifo, ( last - 1 if last > 0 else 0))
 
 ##############################################################################
 
@@ -180,6 +194,7 @@ def deleteFIFO():
 
 @app.route('/procesos/informacion', methods=['GET'])
 def getData():
+    print("-----------------------------------GETTTTT---------------------------")
     return returnData()
 ##############################################################################
 
@@ -202,6 +217,9 @@ def returnData():
     global prioridadesFifo
     global tamanoColaFifo
     global tiempoPromedioFifo
+
+    fibonacciHeap.printHeap()
+    print('-------------------------------------------------------------------------------------------------------------------------------------------------------------------')
 
     return jsonify({
         "Message" : "Success",
@@ -284,7 +302,6 @@ def stringifyHeap(heap):
         })
         nextNode = nextNode.next
 
-    heap.printHeap()
     return result
 
 if __name__ == '__main__':
