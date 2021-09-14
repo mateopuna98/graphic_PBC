@@ -1,12 +1,12 @@
 <template>
     <div class="pcb">
-        <h1 class="h1-sub"> PCB {{type}}</h1>
+        <h1 class="h1-sub pbc"> PCB {{type}}</h1>
 
         <div  v-if="estadoMonstruo === 'monstruo-tranquilo'" class="monstruo-tranquilo"></div>
         <div  v-if="estadoMonstruo === 'monstruo-excitado'" class="monstruo-excitado"></div>
         <div v-else-if="estadoMonstruo === 'monstruo-normal'" class="monstruo-normal"></div>
         
-        <p>Process Data:</p>
+        <p class="pbc">Process Data:</p>
         <div class="processData">
 
           <div class="dataRow">
@@ -26,7 +26,7 @@
 
         <div class="countdown">
           
-          <p>Running:</p>
+          <p class="pbc">Running:</p>
           
           <div class="bar">
 
@@ -188,6 +188,10 @@ export default {
 
 @-webkit-keyframes play {
   100% { background-position: -1900px; }
+}
+
+.pbc {
+  text-align: center;
 }
 
 .processData {
