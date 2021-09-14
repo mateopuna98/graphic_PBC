@@ -2,7 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    estadoMonstruo: "monstruo-tranquilo",
+    estadoMonstruoFIFO: "monstruo-tranquilo",
+    estadoMonstruoFibonacci: "monstruo-tranquilo",
     fibonacciHeap: [],
     fifo: [],
     pbcFifo: null,
@@ -32,13 +33,30 @@ export default createStore({
 
     updateData(state, { data }){
     
-      console.log("Mutando")
       console.log(data)
       
       state.fibonacciHeap = data['fibonacciHeap']
       state.fifo = data['fifo']
-      state.pbcFifo = data['pbcFifo']
-      state.pbcHeap = data['pbcHeap']
+      if (state.pbcFifo === null && data['pbcFifo'] !== null) {
+        
+        state.pbcFifo = data['pbcFifo']
+      
+      }else if (data['pbcFifo'] !== null  && (state.pbcFifo['PID'] !== data['pbcFifo']['PID'])) {
+        state.pbcFifo = data['pbcFifo']
+      } else if (state.pbcFifo !== null && data['pbcFifo'] === null) {
+        state.pbcFifo = null
+      }
+
+
+      if (state.pbcHeap === null && data['pbcHeap'] !== null) {
+         
+        state.pbcHeap = data['pbcHeap']
+
+      } else if (data['pbcHeap'] !== null  && (state.pbcHeap['PID'] !== data['pbcHeap']['PID'])) {
+        state.pbcHeap = data['pbcHeap']
+      } else if (state.pbcHeap !== null && data['pbcHeap'] === null) {
+        state.pbcHeap = null
+      }
       
       state.estadisticas.fibonacciHeap.procesosTerminados = data['estadisticas']['fibonacciHeap']['procesosTerminados']
       state.estadisticas.fibonacciHeap.prioridadPromedio = data['estadisticas']['fibonacciHeap']['prioridadPromedio']
@@ -54,9 +72,13 @@ export default createStore({
       state.estadisticas.fifo.valorPonderaroPerdida = data['estadisticas']['fifo']['valorPonderadoPerdida']
       state.estadisticas.fifo.tamanoCola = data['estadisticas']['fifo']['tamanoCola']
     },
-    updateEstadoMonstruo(state, {estado}) {
-      state.estadoMonstruo = estado
-    }
+    updateEstadoMonstruos(state, {estado}) {
+      state.estadoMonstruoFIFO = estado
+      state.estadoMonstruoFibonacci = estado
+    },
+    updateEstadoMonstruo(state, {estado, monstruo}) {
+      state['estadoMonstruo' + monstruo] = estado
+    },
 
   },
   actions: {
@@ -88,33 +110,34 @@ export default createStore({
     },
 
     async excitarMonstruo(context) {
-        context.commit('updateEstadoMonstruo', { 'estado': 'monstruo-excitado' })
+        context.commit('updateEstadoMonstruos', { 'estado': 'monstruo-excitado' })
         return new Promise(resolve => setTimeout(resolve, 2000)).then(() => {
-          context.commit('updateEstadoMonstruo', { 'estado': 'monstruo-normal' })
+          context.commit('updateEstadoMonstruos', { 'estado': 'monstruo-normal' })
         })
     },
 
-    async tranquilizarMonstruo(context) {
-      context.commit('updateEstadoMonstruo', { 'estado': 'monstruo-tranquilo' })
+    async tranquilizarMonstruo(context, { monstruo }) {
+
+      context.commit('updateEstadoMonstruo', { 'estado': 'monstruo-tranquilo', 'monstruo' : monstruo })
     },
 
-    async fibonacciDelete(context) {
+    async FibonacciDelete(context) {
 
       await fetch('api/procesos/fibonacci/delete', { method: 'POST' })
-      .then((result) => {
-        console.log(result)
-        context.dispatch('getData')
+      .then(async (result) => {
+        const res = await result.json()
+        context.commit('updateData', { "data":res })
       })
       .catch((e) => {console.log(e)})
 
     },
 
-    async fifoDelete(context) {
+    async FIFODelete(context) {
 
       await fetch('api/procesos/fifo/delete', { method: 'POST' })
-      .then((result) => {
-        console.log(result)
-        context.dispatch('getData')
+      .then(async (result) => {
+        const res = await result.json()
+        context.commit('updateData', { "data":res })
       })
       .catch((e) => {console.log(e)})
 
