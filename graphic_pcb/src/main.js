@@ -1,6 +1,10 @@
-import { createApp } from 'vue'
+import Vue from 'vue'
 import App from './App.vue'
-import store from './store/index.js'
+import store from './store'
 
+Vue.config.productionTip = false
 
-createApp(App).use(store).mount('#app')
+new Vue({
+  store,
+  render: function (h) { return h(App) }
+}).$mount('#app')
