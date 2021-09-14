@@ -1,7 +1,9 @@
 <template>
-
   <div class="main">
-    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto Slab"
+      rel="stylesheet"
+    />
 
     <div id="header">
       <h1>Proyecto Final Algorítmica II</h1>
@@ -25,14 +27,12 @@
         <Stats type="Fibonacci" />
         <Stats type="FIFO" />
       </div>
-
     </div>
 
     <div>
-
       <Texto />
     </div>
-    </div>
+  </div>
 </template>
 
 <script>
@@ -41,7 +41,6 @@ import PCB from "./components/PCB";
 import Queue from "./components/Queue";
 import Stats from "./components/Stats";
 import Texto from "./components/Texto";
-
 export default {
   name: "App",
   components: {
@@ -49,12 +48,12 @@ export default {
     PCB,
     Queue,
     Stats,
-    Texto
+    Texto,
   },
 
   created() {
-    this.$store.dispatch('getData')
-  }
+    this.$store.dispatch("getData");
+  },
 };
 </script>
 
@@ -74,9 +73,8 @@ export default {
   width: 100%;
   background-color: #52a6bf;
   margin-right: -8px;
-
 }
-#header h1{
+#header h1 {
   color: white;
   text-align: left;
   font-size: 20px;
@@ -87,11 +85,11 @@ html body {
   margin: 0;
 }
 .main {
-  position:absolute;
-  top:0px;
-  right:0px;
-  bottom:0px;
-  left:0px;  
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
   background: white;
 }
 h1 {
@@ -106,7 +104,7 @@ h1 {
   grid-template-columns: 2fr 4fr 2fr;
   height: 1000px;
   padding: 50px;
-  gap: 1em
+  gap: 1em;
 }
 .c1 {
   display: grid;
@@ -114,15 +112,14 @@ h1 {
 }
 .c11 {
   display: grid;
-  grid-template-rows: 3fr 1fr ;
+  grid-template-rows: 3fr 1fr;
 }
 .pcb-fibo:hover {
-    border: 2px solid #9c9ea4;
+  border: 2px solid #9c9ea4;
 }
 
 .pcb-fifo:hover {
-    border: 2px solid #9c9ea4;
-
+  border: 2px solid #9c9ea4;
 }
 .c2 {
   display: grid;
@@ -139,5 +136,4 @@ h1 {
 .c3 div:hover {
   border: 2px solid #9c9ea4;
 }
-
 </style>

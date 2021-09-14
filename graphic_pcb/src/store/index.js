@@ -30,23 +30,23 @@ export default createStore({
   },
   mutations: {
 
-    updateData(state, { data }){
-    
+    updateData(state, { data }) {
+
       console.log("Mutando")
       console.log(data)
-      
+
       state.fibonacciHeap = data['fibonacciHeap']
       state.fifo = data['fifo']
       state.pbcFifo = data['pbcFifo']
       state.pbcHeap = data['pbcHeap']
-      
+
       state.estadisticas.fibonacciHeap.procesosTerminados = data['estadisticas']['fibonacciHeap']['procesosTerminados']
       state.estadisticas.fibonacciHeap.prioridadPromedio = data['estadisticas']['fibonacciHeap']['prioridadPromedio']
       state.estadisticas.fibonacciHeap.tamanoColaPromedio = data['estadisticas']['fibonacciHeap']['tamanoColaPromedio']
       state.estadisticas.fibonacciHeap.tiempoEsperaPromedio = data['estadisticas']['fibonacciHeap']['tiempoEsperaPromedio']
       state.estadisticas.fibonacciHeap.valorPonderaroPerdida = data['estadisticas']['fibonacciHeap']['valorPonderadoPerdida']
       state.estadisticas.fibonacciHeap.tamanoCola = data['estadisticas']['fibonacciHeap']['tamanoCola']
-      
+
       state.estadisticas.fifo.procesosTerminados = data['estadisticas']['fifo']['procesosTerminados']
       state.estadisticas.fifo.prioridadPromedio = data['estadisticas']['fifo']['prioridadPromedio']
       state.estadisticas.fifo.tamanoColaPromedio = data['estadisticas']['fifo']['tamanoColaPromedio']
@@ -54,7 +54,7 @@ export default createStore({
       state.estadisticas.fifo.valorPonderaroPerdida = data['estadisticas']['fifo']['valorPonderadoPerdida']
       state.estadisticas.fifo.tamanoCola = data['estadisticas']['fifo']['tamanoCola']
     },
-    updateEstadoMonstruo(state, {estado}) {
+    updateEstadoMonstruo(state, { estado }) {
       state.estadoMonstruo = estado
     }
 
@@ -64,34 +64,34 @@ export default createStore({
     async getData(context) {
       // Usa este metodo para recibir informacion del backend
 
-      await fetch('api/procesos/informacion', {method: 'GET'})
-      .then(async (result) =>{
+      await fetch('api/procesos/informacion', { method: 'GET' })
+        .then(async (result) => {
 
-        const res = await result.json()
-        context.commit('updateData', { "data":res })
+          const res = await result.json()
+          context.commit('updateData', { "data": res })
 
-      })
-      .catch((e) => {console.log(e)})
+        })
+        .catch((e) => { console.log(e) })
 
     },
 
     async agregarProcesos(context, { cantidad }) {
       // Usa este metodo para agregar procesos y actualizar automaticamente vuex
 
-      await fetch(`api/procesos/${cantidad}`, {method: 'POST'})
-      .then((result) => {
-        console.log(result)
-        context.dispatch('getData')
-      })
-      .catch((e) => {console.log(e)})
+      await fetch(`api/procesos/${cantidad}`, { method: 'POST' })
+        .then((result) => {
+          console.log(result)
+          context.dispatch('getData')
+        })
+        .catch((e) => { console.log(e) })
 
     },
 
     async excitarMonstruo(context) {
-        context.commit('updateEstadoMonstruo', { 'estado': 'monstruo-excitado' })
-        return new Promise(resolve => setTimeout(resolve, 2000)).then(() => {
-          context.commit('updateEstadoMonstruo', { 'estado': 'monstruo-normal' })
-        })
+      context.commit('updateEstadoMonstruo', { 'estado': 'monstruo-excitado' })
+      return new Promise(resolve => setTimeout(resolve, 2000)).then(() => {
+        context.commit('updateEstadoMonstruo', { 'estado': 'monstruo-normal' })
+      })
     },
 
     async tranquilizarMonstruo(context) {
@@ -101,22 +101,22 @@ export default createStore({
     async fibonacciDelete(context) {
 
       await fetch('api/procesos/fibonacci/delete', { method: 'POST' })
-      .then((result) => {
-        console.log(result)
-        context.dispatch('getData')
-      })
-      .catch((e) => {console.log(e)})
+        .then((result) => {
+          console.log(result)
+          context.dispatch('getData')
+        })
+        .catch((e) => { console.log(e) })
 
     },
 
     async fifoDelete(context) {
 
       await fetch('api/procesos/fifo/delete', { method: 'POST' })
-      .then((result) => {
-        console.log(result)
-        context.dispatch('getData')
-      })
-      .catch((e) => {console.log(e)})
+        .then((result) => {
+          console.log(result)
+          context.dispatch('getData')
+        })
+        .catch((e) => { console.log(e) })
 
     }
 
@@ -125,11 +125,11 @@ export default createStore({
   },
 
   getters: {
-    
+
     getFibonacciHeap(state) {
-    
+
       return state.fibonacciHeap
-    
+
     },
 
     getFifo(state) {
@@ -139,7 +139,7 @@ export default createStore({
     },
 
     getPBCFibonacciHeap(state) {
-      
+
       return state.pbcHeap
 
     },

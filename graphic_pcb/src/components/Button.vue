@@ -1,9 +1,10 @@
 <template>
   <div class="button">
-    <button @click="onClick()">Añadir {{ cantidadProcesos }} procesos en ambas colas</button>
+    <button @click="onClick()">
+      Añadir {{ cantidadProcesos }} procesos en ambas colas
+    </button>
   </div>
 </template>
-
 
 <script>
 export default {
@@ -15,8 +16,10 @@ export default {
   },
   methods: {
     onClick() {
-      console.log(this.$store.dispatch('agregarProcesos', { 'cantidad': this.cantidadProcesos }))
-      this.$store.dispatch('excitarMonstruo')
+      this.$store.dispatch("agregarProcesos", {
+        cantidad: this.cantidadProcesos,
+      });
+      this.$store.dispatch("excitarMonstruo");
       this.cantidadProcesos = parseInt(1 + Math.random() * 5);
     },
   },
@@ -30,8 +33,6 @@ button {
   color: white;
   background-color: #52a6bf;
   border: 0px;
-
-  /* color: orange */
 }
 .button {
   display: flex;
