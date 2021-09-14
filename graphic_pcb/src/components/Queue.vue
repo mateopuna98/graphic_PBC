@@ -1,5 +1,5 @@
 <template>
-    <div class="queue">
+    <div :id="`${type}Display`" @mouseover="hover = true" @mouseout="hover = false">
         <h1 class="h1-sub"> Cola {{type}}</h1>
         <div id="graphics" class="graphics">
 
@@ -24,39 +24,11 @@ export default {
     name: 'Queue',
     props: {
         type: String,
-    },
-
-    computed: {
-
-        elements(){
-            const elements = []
-            // if (this.type === 'FIFO'){
-
-            //     (this.$store.getters.getFIFO).foreach((process) => {
-
-
-
-            //     })
-
-            // }
-        }
-
+        elements: Array
     },
 
     data() {
         return {
-            elements: [
-            { data: { id: 'one', label: 'Node 1' } },
-            { data: { id: 'two', label: 'Node 2' } },
-            {
-                data: {
-                id: 'rel-onetwo',
-                source: 'one',
-                target: 'two',
-                label: 'label for this relationship',
-                },
-            },
-            ],
             config: {
             style: [
                 {
@@ -74,8 +46,22 @@ export default {
                 },
             ],
             },
+            hover: false,
         }
     },
+
+    watch: {
+    hover: function (val) {
+
+      if (val) {
+        document.querySelector("#" + this.type.toLowerCase() + "Display").style.border= "2px solid #9c9ea4"
+      } else {
+        document.querySelector("#" + this.type.toLowerCase() + "Display").style.border= "0px solid #9c9ea4"
+      }
+
+    }
+
+  }
     
 }
 

@@ -160,7 +160,49 @@ export default new Vuex.Store({
 
     getFifo(state) {
 
-      return state.fifo
+      const nodes = []
+
+      let x = 0
+      let y  = 100
+
+      let lastPID = null
+
+      state.fifo.forEach((process) => {
+
+        x+=150
+
+        nodes.push({
+          data : {
+            id: process['PID'],
+            label: 'PID:' + process['PID'] + ' priority: ' + process['prioridad'],
+
+          },
+          position : {
+            x: x,
+            y: y
+          },
+          style : {
+            'background-color': '#52a6bf'
+          }
+        })
+
+        if (lastPID !== null) {
+
+          nodes.push({
+            data: {
+              id: 'ed' + lastPID + '-' + process['PID'],
+              source: lastPID,
+              target: process['PID']
+            }
+          })
+
+        }
+
+        lastPID = process.PID
+
+      })
+
+      return nodes
 
     },
 
