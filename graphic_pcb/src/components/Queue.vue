@@ -1,6 +1,6 @@
 <template>
-    <div class="queue">
-        <h1 class="h1-sub"> Cola {{type}}</h1>
+    <div :id="`${type}Display`" @mouseover="hover = true" @mouseout="hover = false">
+        <h1 class="h1-sub title"> Cola {{type}}</h1>
         <div id="graphics" class="graphics">
 
             <cytoscape ref="cy" :config="config">
@@ -42,14 +42,31 @@ export default {
                 },
             ],
             },
+            hover: false,
         }
     },
+
+    watch: {
+    hover: function (val) {
+
+      if (val) {
+        document.querySelector("#" + this.type.toLowerCase() + "Display").style.border= "2px solid #9c9ea4"
+      } else {
+        document.querySelector("#" + this.type.toLowerCase() + "Display").style.border= "0px solid #9c9ea4"
+      }
+
+    }
+
+  }
+    
 }
 
 </script>
 
 <style scoped>
-
+.title {
+    text-align: center;
+}
 #cytoscape-div {
   height: 100% !important;
   min-height: unset !important;

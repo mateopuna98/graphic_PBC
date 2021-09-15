@@ -17,8 +17,9 @@
       </div>
 
       <div class="c2">
-        <Queue type="Fibonacci" :elements=$store.getters.getFibonacciHeap />
-        <Queue type="FIFO" />
+
+        <Queue id="fibonacciDisplay" type="Fibonacci" :elements=$store.getters.getFibonacciHeap />
+        <Queue id="fifoDisplay" type="FIFO" :elements=$store.getters.getFifo />
       </div>
 
       <div class="c3">
@@ -54,7 +55,8 @@ export default {
 
   created() {
     this.$store.dispatch('getData')
-  }
+  },
+
 };
 </script>
 
@@ -118,14 +120,14 @@ h1 {
   display: grid;
   grid-template-rows: 3fr 1fr ;
 }
-/* .pcb-fibo:hover {
+.pcb-fibo:hover {
     border: 2px solid #9c9ea4;
 }
 
 .pcb-fifo:hover {
     border: 2px solid #9c9ea4;
 
-} */
+}
 .c2 {
   display: grid;
   grid-template-rows: 60% 40%;
@@ -138,8 +140,9 @@ h1 {
 /* .c2 div:hover {
   border: 2px solid #9c9ea4;
 }
+*/
 .c3 div:hover {
   border: 2px solid #9c9ea4;
-} */
+}
 
 </style>
