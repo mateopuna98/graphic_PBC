@@ -32,7 +32,7 @@ function calcularPosicionPorNivel(descendientes, cantidadEnNiveles, numeroNivele
             const y = alturaPorNiveles[levelAux]
             const stepX = largoMaximo/cantidadEnNiveles[levelAux] 
             const x = 50 + stepX * j 
-            elementos[cantidadTotal] = {data: {id : elem.hijo.process.PID.toString()}, position: {x: x, y: y }}
+            elementos[cantidadTotal] = {data: {id : elem.hijo.process.PID.toString()}, position: {x: x, y: y }, style : {'background-color': '#52a6bf'}}
             cantidadTotal += 1
         }
     }
@@ -41,7 +41,7 @@ function calcularPosicionPorNivel(descendientes, cantidadEnNiveles, numeroNivele
     for( var k = 0; k < descendientes.length; k++) {
       const pidHijo = descendientes[k].hijo.process.PID.toString()
       const pidPadre = descendientes[k].padre
-      aristasHijos[k] = {data: {id: pidHijo + pidPadre, source: pidPadre, target: pidHijo }}
+      aristasHijos[k] = {data: {id: 'e' + pidHijo + pidPadre, source: pidPadre, target: pidHijo }}
     }
     return {nodosHijos: elementos, aristasHijos}
 }

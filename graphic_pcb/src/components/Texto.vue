@@ -116,15 +116,16 @@ export default {
         width: 60%;
         text-align: justify;
         margin: auto;
-        padding: 0.5em;
+        padding: 0.4em;
     }
     .formula{
         align-self: center;
         text-align: center;
     }
     .data {
+        font-size: 20px;
         padding: 50px;
-        width: 45%;
+        width: 40%;
         align-items: center;
         justify-content: center;
         margin: auto;
