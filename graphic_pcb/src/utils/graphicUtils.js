@@ -1,8 +1,5 @@
 function positionHelper(head, nivel, descendientes) {
-    if(!head) {
-        return
-    }
-    if ( head.child.length === 0 ){
+    if (head.child.length === 0){
         nivel -= 1
         return 
     }
@@ -20,10 +17,8 @@ function calcularPosicionPorNivel(descendientes, cantidadEnNiveles, numeroNivele
     alturaPorNiveles = Array.apply(null, Array(numeroNiveles)).map(function () {return 0})
     for(var i = 0; i < numeroNiveles; i++) {
         if ( i === 0 ) {
-            console.log("Aqui")
             alturaPorNiveles[0] = 170 + step
         } else {
-            console.log("here")
             alturaPorNiveles[i] = 170 + step * (i + 1)
         }
     }
@@ -59,12 +54,13 @@ const obtenerPosicionHijosFibonacci = (head) => {
  })
  if(!descendientes.length) {
    return []
- }
+ } 
  const numeroNiveles = descendientes[descendientes.length-1].nivel
  const cantidadEnNiveles = Array.apply(null, Array(numeroNiveles)).map(function () {return 0})
  descendientes.forEach(descendiente => {
      cantidadEnNiveles[descendiente.nivel -1] += 1
  })
+
 return calcularPosicionPorNivel(descendientes, cantidadEnNiveles, numeroNiveles)
 }
 

@@ -151,14 +151,21 @@ export default new Vuex.Store({
   getters: {
     
     getFibonacciHeap(state) {
+      if (!state.fibonacciHeap.length || typeof state.fibonacciHeap === 'undefined' || state.fibonacciHeap === null) {
+          return []
+      } 
       const heap = _.cloneDeep(state.fibonacciHeap)
       let j = 0
-      const nodosHeap = heap.map(proceso => {
+      const nodosHeap = heap.map((proceso, index) => {
         j += 1
-        return {data: {id : proceso.process.PID.toString()}, position: {x: 100 + 70 * j, y: 100 }}
+        const nodo = {data: {id : proceso.process.PID.toString()}, position: {x: 100 + 70 * j, y: 100 }, style : {'background-color': '#52a6bf'}}
+        if(index === 0) {
+          nodo.data.label =  'PID: ' + proceso.process.PID + ' prioridad: ' + proceso.process['prioridad']
+        }
+        return nodo
       }) 
-      let lastPID = undefined   
 
+      let lastPID = undefined   
       const aristasHeap = heap.map(p => {
         const cPID = p.process.PID.toString()
         if(!lastPID){
@@ -171,7 +178,11 @@ export default new Vuex.Store({
       }).filter(p => p)
 
       const  head = _.cloneDeep(heap[0])
+      if(!head.child.length) {
+        return nodosHeap.concat(aristasHeap)
+      }
       const {nodosHijos, aristasHijos} = obtenerPosicionHijosFibonacci(head)
+    
       return nodosHeap.concat(nodosHijos).concat(aristasHeap).concat(aristasHijos)
     },
 
@@ -186,12 +197,12 @@ export default new Vuex.Store({
 
       state.fifo.forEach((process) => {
 
-        x+=150
+        x +=150
 
         nodes.push({
           data : {
             id: process['PID'],
-            label: 'PID:' + process['PID'] + ' priority: ' + process['prioridad'],
+            label: 'PID:' + process['PID'] + ' prioridad: ' + process['prioridad'],
 
           },
           position : {

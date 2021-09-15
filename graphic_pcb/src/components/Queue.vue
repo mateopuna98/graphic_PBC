@@ -7,7 +7,7 @@
   >
     <h1 class="h1-sub title">Cola {{ type }}</h1>
     <div id="graphics" class="graphics">
-      <cytoscape :id="`${type}canvas`" :ref="`${type}cy`" :config="config">
+      <cytoscape class ="cyto" :id="`${type}canvas`" :ref="`${type}cy`" :config="config">
         <cy-element
           v-for="def in elements"
           :key="`${def.data.id}`"
@@ -72,25 +72,19 @@ export default {
   text-align: center;
 }
 #cytoscape-div {
-  height: 100% !important;
-  min-height: unset !important;
+  height: 800px ;
 }
 .canvas {
   overflow: hidden;
+  height: 100%;
 }
 
-.graph-container {
-  font-family: sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.graphics {
+height: 100%;
 }
 
-.cy-graph {
-  height: 800px;
-  width: 600px;
-  background: lightblue;
-  border: 1px solid red;
-  display: block;
+.cyto {
+height: 100%;
 }
+
 </style>
