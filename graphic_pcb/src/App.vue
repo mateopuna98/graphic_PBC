@@ -6,8 +6,9 @@
     <div id="header">
       <h1>Proyecto Final Algorítmica II</h1>
     </div>
-
+    <Analisis />
     <div class="mainGrid">
+
       <div class="c1">
         <div class="c11">
           <PCB class="pcb-fibo" type="Fibonacci" :process=$store.getters.getPBCFibonacciHeap :estadoMonstruo=$store.state.estadoMonstruoFibonacci />
@@ -42,6 +43,7 @@ import PCB from "./components/PCB";
 import Queue from "./components/Queue";
 import Stats from "./components/Stats";
 import Texto from "./components/Texto";
+import Analisis from "./components/Analisis";
 
 export default {
   name: "App",
@@ -50,7 +52,8 @@ export default {
     PCB,
     Queue,
     Stats,
-    Texto
+    Texto,
+    Analisis
   },
 
   created() {
@@ -69,14 +72,12 @@ export default {
 }
 
 #header {
-
   position: fixed;
   display: block;
   height: 50px;
   width: 100%;
   background-color: #52a6bf;
   margin-right: -8px;
-
 }
 #header h1{
   color: white;
@@ -142,5 +143,8 @@ h1 {
 .c3 div:hover {
   border: 0.1em solid #9c9ea4;
 }
-
+.visualizaciontitulo {
+  color: #b26e63;
+  font-size: 2.5em;
+}
 </style>

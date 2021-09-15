@@ -100,14 +100,14 @@ class FibonacciHeap:
     return x
 
   def consolidate(self):
-    print('CONSOLIDACION')
-    self.printHeap()
+    #print('CONSOLIDACION')
+    #self.printHeap()
     rankings = {}
     node = self.head.next
     rankings[self.head.rank] = self.head
-    print("head: " + str(self.head.key))
+    #print("head: " + str(self.head.key))
     while node is not self.head:
-      print("comparing PID" + str(node.process['PID']) + " with head PID: " + str(self.head.process['PID']))
+      #print("comparing PID" + str(node.process['PID']) + " with head PID: " + str(self.head.process['PID']))
       if rankings.get(node.rank) is None:
         rankings[node.rank] = node
       else:
@@ -133,7 +133,7 @@ class FibonacciHeap:
     #self.printHeap()
 
   def insertChild(self, parent, child):
-    print("inserting child PID: " + str(child.process["PID"]) + " to parent PID: " + str(parent.process["PID"]))
+    #print("inserting child PID: " + str(child.process["PID"]) + " to parent PID: " + str(parent.process["PID"]))
 
     child.parent = parent
     parent.rank += 1
@@ -151,7 +151,7 @@ class FibonacciHeap:
       parent.child.prev = child
 
   def merge(self, node1, node2):
-    print("Merging (key,PID): (" + str(node1.key) + ", " + str(node1.process["PID"]) + ") with (" + str(node2.key)  + ", " + str(node2.process['PID']) +")")
+    #print("Merging (key,PID): (" + str(node1.key) + ", " + str(node1.process["PID"]) + ") with (" + str(node2.key)  + ", " + str(node2.process['PID']) +")")
     if node1 is self.head:
       self.deleteReference(node2)
       self.insertChild(node1,node2)
