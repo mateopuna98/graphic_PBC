@@ -33,7 +33,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
  #titulo{
      text-align: center;
      color: #7f696c;
