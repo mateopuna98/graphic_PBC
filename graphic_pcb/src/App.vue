@@ -66,7 +66,6 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #header {
@@ -99,7 +98,8 @@ html * {
   right:0px;
   bottom:0px;
   left:0px;  
-  background: white;
+  background: #ffffff;
+
 }
 h1 {
   font-weight: 100;
@@ -124,12 +124,11 @@ h1 {
   grid-template-rows: 3fr 1fr ;
 }
 .pcb-fibo:hover {
-    border: 2px solid #9c9ea4;
+    border: 0.1em solid #9c9ea4;
 }
 
 .pcb-fifo:hover {
-    border: 2px solid #9c9ea4;
-
+    border: 0.1em solid #9c9ea4;
 }
 .c2 {
   display: grid;
@@ -140,12 +139,8 @@ h1 {
   grid-template-rows: 60% 40%;
 }
 
-/* .c2 div:hover {
-  border: 2px solid #9c9ea4;
-}
-*/
 .c3 div:hover {
-  border: 2px solid #9c9ea4;
+  border: 0.1em solid #9c9ea4;
 }
 
 </style>

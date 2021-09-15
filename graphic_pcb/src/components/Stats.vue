@@ -56,14 +56,14 @@ export default {
     h5 {
     text-align: left;
     padding-left: 20px; 
-    font-size: 25px;
+    font-size: 23px;
     }
     ul, li { 
     margin: 0; 
     padding-left: 10px;
     text-align: left;
     list-style-type: none;
-    font-size: 23px;
+    font-size: 20px;
 
     }
 </style>

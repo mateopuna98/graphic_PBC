@@ -6,7 +6,7 @@
         <div  v-if="estadoMonstruo === 'monstruo-excitado'" class="monstruo-excitado"></div>
         <div v-else-if="estadoMonstruo === 'monstruo-normal'" class="monstruo-normal"></div>
         
-        <p class="pbc">Process Data:</p>
+        <p class="pbc">Información del proceso:</p>
         <div class="processData">
 
           <div class="dataRow">
@@ -26,7 +26,7 @@
 
         <div class="countdown">
           
-          <p class="pbc">Running:</p>
+          <p class="pbc">Progreso proceso actual:</p>
           
           <div class="bar">
 
@@ -118,7 +118,7 @@ export default {
 
         if (this.process === null) {
         
-          return "None"
+          return "Null"
         
         }
 
@@ -130,7 +130,7 @@ export default {
 
         if (this.process === null) {
 
-          return "None"
+          return "Null"
 
         }
         

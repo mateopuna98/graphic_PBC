@@ -54,11 +54,8 @@ export default {
       } else {
         document.querySelector("#" + this.type.toLowerCase() + "Display").style.border= "0px solid #9c9ea4"
       }
-
     }
-
   }
-    
 }
 
 </script>
