@@ -11,7 +11,7 @@ function positionHelper(head, nivel, descendientes) {
 }
 
 function calcularPosicionPorNivel(descendientes, cantidadEnNiveles, numeroNiveles) {
-    const alturaMaxima = 500
+    const alturaMaxima = 400
     const largoMaximo = 600
     const step = alturaMaxima/numeroNiveles
     alturaPorNiveles = Array.apply(null, Array(numeroNiveles)).map(function () {return 0})
@@ -24,7 +24,7 @@ function calcularPosicionPorNivel(descendientes, cantidadEnNiveles, numeroNivele
     }
 
     const elementos = Array.apply(null, Array(descendientes.length)).map(function () {})
-    cantidadTotal = 0
+    cantidadTotal = 0       
     for (var i = 0; i < cantidadEnNiveles.length; i++) {
         for (var j = 0; j < cantidadEnNiveles[i]; j++ ) {
             const elem = descendientes[cantidadTotal]

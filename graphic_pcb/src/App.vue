@@ -7,7 +7,6 @@
       <h1>Proyecto Final Algorítmica II</h1>
     </div>
     <Analisis />
-
     <div class="mainGrid">
 
       <div class="c1">
@@ -144,5 +143,8 @@ h1 {
 .c3 div:hover {
   border: 0.1em solid #9c9ea4;
 }
-
+.visualizaciontitulo {
+  color: #b26e63;
+  font-size: 2.5em;
+}
 </style>
