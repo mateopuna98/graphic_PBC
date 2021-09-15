@@ -1,7 +1,7 @@
 <template>
 
   <div class="main">
-    <!-- <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'> -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
 
     <div id="header">
       <h1>Proyecto Final Algorítmica II</h1>
@@ -61,10 +61,8 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
 
 #app {
-  font-family: "font-family: 'Roboto Condensed', sans-serif;";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -72,9 +70,10 @@ export default {
 }
 
 #header {
+
   position: fixed;
   display: block;
-  height: 45px;
+  height: 50px;
   width: 100%;
   background-color: #52a6bf;
   margin-right: -8px;
@@ -89,6 +88,10 @@ export default {
 html body {
   height: 100%;
   margin: 0;
+}
+
+html * {
+    font-family: "Roboto Slab", serif !important;
 }
 .main {
   position:absolute;

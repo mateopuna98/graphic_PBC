@@ -53,12 +53,17 @@ export default {
     padding-left: 20px;
 
     }
+    h5 {
+    text-align: left;
+    padding-left: 20px; 
+    font-size: 25px;
+    }
     ul, li { 
     margin: 0; 
     padding-left: 10px;
     text-align: left;
     list-style-type: none;
-    font-size: 15px;
+    font-size: 23px;
 
     }
 </style>
