@@ -32,7 +32,7 @@ export default {
 ;
 }
 .text {
-    width: 800px;
+    width: 40%;
     padding: 20px;
     margin: auto;
 }
