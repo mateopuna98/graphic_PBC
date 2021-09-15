@@ -250,6 +250,19 @@ export default new Vuex.Store({
 
       return state.estadisticas
 
+    },
+    getEstadoMonstruo: (state) => function (tipo) {
+
+      if (tipo === "Fibonacci") {
+
+        return state.estadoMonstruoFibonacci
+
+      } else {
+
+        return state.estadoMonstruoFIFO
+
+      }
+
     }
 
   }
