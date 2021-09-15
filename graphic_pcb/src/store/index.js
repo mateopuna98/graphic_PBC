@@ -170,12 +170,8 @@ export default new Vuex.Store({
         return arista
       }).filter(p => p)
 
-
       const  head = _.cloneDeep(heap[0])
-      // console.log(head)
       const {nodosHijos, aristasHijos} = obtenerPosicionHijosFibonacci(head)
-      // console.log(descendientes)
-      // console.log(nodosHeap)
       return nodosHeap.concat(nodosHijos).concat(aristasHeap).concat(aristasHijos)
     },
 
