@@ -47,7 +47,9 @@ export default {
 </script>
 
 <style scoped>
-
+    .h1-sub{
+      text-align: center;
+    }
     h4 {
     text-align: left;
     padding-left: 20px;
