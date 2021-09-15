@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     onClick() {
-      console.log(this.$store.dispatch('agregarProcesos', { 'cantidad': this.cantidadProcesos }))
+      this.$store.dispatch('agregarProcesos', { 'cantidad': this.cantidadProcesos })
       this.$store.dispatch('excitarMonstruo')
       this.kencha = true
       document.querySelector('#botonAgregar').style.background = "#52a6bf8c" 

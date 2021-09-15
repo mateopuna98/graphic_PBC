@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import obtenerPosicionHijosFibonacci from "../utils/graphicUtils.js"
+import _ from "lodash" 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -35,9 +36,7 @@ export default new Vuex.Store({
   mutations: {
 
     updateData(state, { data }){
-    
-      console.log(data)
-      
+        
       state.fibonacciHeap = data['fibonacciHeap']
       state.fifo = data['fifo']
       if (state.pbcFifo === null && data['pbcFifo'] !== null) {
@@ -97,7 +96,6 @@ export default new Vuex.Store({
 
       })
       .catch((e) => {console.log(e)})
-
     },
 
     async agregarProcesos(context, { cantidad }) {
@@ -153,9 +151,32 @@ export default new Vuex.Store({
   getters: {
     
     getFibonacciHeap(state) {
-    
-      return state.fibonacciHeap
-    
+      const heap = _.cloneDeep(state.fibonacciHeap)
+      let j = 0
+      const nodosHeap = heap.map(proceso => {
+        j += 1
+        return {data: {id : proceso.process.PID.toString()}, position: {x: 100 + 70 * j, y: 100 }}
+      }) 
+      let lastPID = undefined   
+
+      const aristasHeap = heap.map(p => {
+        const cPID = p.process.PID.toString()
+        if(!lastPID){
+          lastPID = cPID;
+          return
+        }
+        const arista = {data: {id: lastPID + cPID, source: lastPID, target: cPID }}
+        lastPID = cPID
+        return arista
+      }).filter(p => p)
+
+
+      const  head = _.cloneDeep(heap[0])
+      // console.log(head)
+      const {nodosHijos, aristasHijos} = obtenerPosicionHijosFibonacci(head)
+      // console.log(descendientes)
+      // console.log(nodosHeap)
+      return nodosHeap.concat(nodosHijos).concat(aristasHeap).concat(aristasHijos)
     },
 
     getFifo(state) {

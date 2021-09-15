@@ -11,52 +11,20 @@
                 />
             </cytoscape>`
         </div>
-
-        
-
     </div>
 </template>
 
 
 <script>
-
 export default {
     name: 'Queue',
     props: {
         type: String,
-    },
-
-    computed: {
-
-        elements(){
-            const elements = []
-            // if (this.type === 'FIFO'){
-
-            //     (this.$store.getters.getFIFO).foreach((process) => {
-
-
-
-            //     })
-
-            // }
-        }
-
+        elements: Array
     },
 
     data() {
         return {
-            elements: [
-            { data: { id: 'one', label: 'Node 1' } },
-            { data: { id: 'two', label: 'Node 2' } },
-            {
-                data: {
-                id: 'rel-onetwo',
-                source: 'one',
-                target: 'two',
-                label: 'label for this relationship',
-                },
-            },
-            ],
             config: {
             style: [
                 {
@@ -76,7 +44,6 @@ export default {
             },
         }
     },
-    
 }
 
 </script>
@@ -96,7 +63,7 @@ export default {
 }
 
 .cy-graph {
-  height: 400px;
+  height: 800px;
   width: 600px;
   background: lightblue;
   border: 1px solid red;
