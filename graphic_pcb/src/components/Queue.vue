@@ -72,7 +72,8 @@ export default {
   text-align: center;
 }
 #cytoscape-div {
-  height: 800px ;
+  height: 100% !important;
+  min-height: 100% !important;
 }
 .canvas {
   overflow: hidden;
