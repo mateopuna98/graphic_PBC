@@ -150,6 +150,24 @@ export default new Vuex.Store({
 
   getters: {
     
+    getEstadoMonstruo: (state) => function (tipo) {
+
+      if (tipo === 'Fibonacci')  {
+
+        return state.estadoMonstruoFibonacci
+
+      } else if (tipo === 'FIFO'){
+
+        return state.estadoMonstruoFIFO
+
+      } else {
+
+        return null
+
+      }
+
+    },
+
     getFibonacciHeap(state) {
       const heap = _.cloneDeep(state.fibonacciHeap)
       let j = 0

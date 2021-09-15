@@ -230,7 +230,7 @@ def returnData():
         "estadisticas" : {
             "fibonacciHeap" : {
                 "procesosTerminados" : totalHeap,
-                "valorPonderadoPerdida" : ponderadoHeap,
+                "valorPonderadoPerdida" : round(ponderadoHeap, 2),
                 "prioridadPromedio" : promedio(prioridadesHeap),
                 "tamanoColaPromedio" : promedio(tamanoColaHeap),
                 "tiempoEsperaPromedio" : promedio(tiempoPromedioHeap),
@@ -238,7 +238,7 @@ def returnData():
             },
             "fifo" : {
                 "procesosTerminados" : totalFifo,
-                "valorPonderadoPerdida" : ponderadoFifo,
+                "valorPonderadoPerdida" : round(ponderadoFifo,2),
                 "prioridadPromedio" : promedio(prioridadesFifo),
                 "tamanoColaPromedio" : promedio(tamanoColaFifo),
                 "tiempoEsperaPromedio" : promedio(tiempoPromedioFifo),
@@ -255,7 +255,7 @@ def promedio(array):
         sum = sum + el
 
     sum = sum / len(array)
-    return sum
+    return round(sum, 2)
 
 def agregarConLimite(array, elemento):
     global limite

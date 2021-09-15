@@ -65,6 +65,12 @@ export default {
 
         if (this.process !== null) {
 
+          if (this.$store.getters.getEstadoMonstruo(this.type) === "monstruo-tranquilo") {
+
+            this.$store.commit('updateEstadoMonstruo', { 'estado' : 'monstruo-normal', 'monstruo' : this.type })
+
+          }
+
           setTimeout(() =>{
             
             if (this.timeLeft > 0) {
@@ -87,11 +93,10 @@ export default {
       }
     },
 
-    mounted() {
-      if (this.process !== null) {
-        this.$store.commit('updateEstadoMonstruo', { 'estado' : 'monstruo-normal', 'monstruo' : this.type })
-      }
+    created() {
+      
       this.timer_loop()
+    
     },
     computed: {
 
