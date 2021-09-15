@@ -158,7 +158,7 @@ export default new Vuex.Store({
       let j = 0
       const nodosHeap = heap.map((proceso, index) => {
         j += 1
-        const nodo = {data: {id : proceso.process.PID.toString()}, position: {x: 100 + 70 * j, y: 100 }, style : {'background-color': '#52a6bf'}}
+        const nodo = {data: {id : proceso.process.PID.toString()}, position: {x: 100 + 150 * j, y: 100 }, style : {'background-color': '#52a6bf'}}
         if(index === 0) {
           nodo.data.label =  'PID: ' + proceso.process.PID + ' prioridad: ' + proceso.process['prioridad']
         }
